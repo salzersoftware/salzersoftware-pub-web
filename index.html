@@ -1,331 +1,97 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Salzer Software specializes in custom software development, with an emphasis on quality, transparency, and speed.">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <style>
+    body {
+  margin: 0;
+  background: #333333;
+}
 
-    <title>Salzer Software - Custom Software Development</title>
+.container {
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
+  gap: 20px;
+}
 
-    <!-- ****** faviconit.com favicons ****** -->
-    <link rel="shortcut icon" href="/icons/favicon.ico">
-    <link rel="icon" sizes="16x16 32x32 64x64" href="/icons/favicon.ico">
-    <link rel="icon" type="image/png" sizes="196x196" href="/icons/favicon-192.png">
-    <link rel="icon" type="image/png" sizes="160x160" href="/icons/favicon-160.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96.png">
-    <link rel="icon" type="image/png" sizes="64x64" href="/icons/favicon-64.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
-    <link rel="apple-touch-icon" href="/icons/favicon-57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/icons/favicon-114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/icons/favicon-72.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/icons/favicon-144.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/icons/favicon-60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/icons/favicon-120.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/icons/favicon-76.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/icons/favicon-152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon-180.png">
-    <meta name="msapplication-TileColor" content="#FFFFFF">
-    <meta name="msapplication-TileImage" content="/icons/favicon-144.png">
-    <meta name="msapplication-config" content="/icons/browserconfig.xml">
-    <!-- ****** faviconit.com favicons ****** -->
+.large-area {
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #aaaaaa;
+  background: #444444;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  resize: none;
+  font-family: monospace;
+  transition: background 0.25s, color 0.25s;
+}
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+.large-area:hover,
+.large-area:focus {
+  background: #4a4a4a;
+}
 
-    <!-- Custom Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+.large-area:focus {
+  color: #eeeeee;
+}
 
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+.controls__button {
+  padding: 8px 14px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #009578;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Roboto";
+}
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
+.controls__button:active {
+  background: #00705a;
+}
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google Analytics -->
+  </style>
+  <body>
+    <div class="container">
+      <textarea class="large-area large-area--input" placeholder="Enter your JSON here...">
+                {"name": "Dom"}
+            </textarea>
+      <div class="controls">
+        <button type="button" class="controls__button controls__button--format">Format</button>
+        <button type="button" class="controls__button controls__button--minify">Minify</button>
+      </div>
+      <textarea readonly class="large-area large-area--output" placeholder="Your JSON will appear here..."></textarea>
+    </div>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      const inputArea = document.querySelector(".large-area--input");
+      const outputArea = document.querySelector(".large-area--output");
+      const btnFormat = document.querySelector(".controls__button--format");
+      const btnMinify = document.querySelector(".controls__button--minify");
 
-      ga('create', 'UA-74059379-1', 'auto');
-      ga('send', 'pageview');
+      btnFormat.addEventListener("click", () => {
+        const formatted = JSON.stringify(JSON.parse(inputArea.value), null, 4);
+
+        outputArea.value = formatted;
+      });
+
+      btnMinify.addEventListener("click", () => {
+        const minified = JSON.stringify(JSON.parse(inputArea.value));
+
+        outputArea.value = minified;
+      });
+
     </script>
-</head>
-
-<body id="page-top">
-
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Salzer Software</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#technology">Technology</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <img src="/img/salzer-software-logo.png" class="logo">
-                <h1>Quality Software, Streamlined</h1>
-                <hr>
-                <h2 class="logo-slogan">
-                    <span>On Point</span>
-                    <i class="fa fa-circle divider"></i>
-                    <span>On Time</span><i class="fa fa-circle divider"></i>
-                    <span>On Budget</span>
-                </h2>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll" style="margin-top:20px;margin-bottom:20px;">Find Out More</a>
-            </div>
-        </div>
-    </header>
-
-    <section class="bg-primary" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Your Trusted Software Solutions Partner</h2>
-                    <hr class="primary">
-                    <p class="text-faded">
-                        Our approach to software development is more streamlined, and transparent than our competitors. 
-                        We eliminate the bulky processes that software development has succumbed to, saving you time and money.
-                    </p>
-                    <p class="text-faded">
-                        We believe in transparency for your software solution, and that is why you will always have a technical contact on the project, offering visibility into the development life-cycle, assurance on project deadlines, and the ability to provide immediate feedback.
-                    </p>
-                    <a href="#services" class="btn btn-default btn-xl page-scroll">Get Started!</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-users wow bounceIn text-primary"></i>
-                        <h3>Team Support</h3>
-                        <p class="text-muted">Leverage our specialized development team to work side-by-side with your team.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-cubes wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                        <h3>Project Execution</h3>
-                        <p class="text-muted">Our full service team will turn your vision into working software.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-wrench wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                        <h3>Maintenance</h3>
-                        <p class="text-muted">Utilize our industry experience to maintain and enhance your existing software solution.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-certificate wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                        <h3>Quality & Integrity</h3>
-                        <p class="text-muted">We pride ourselves on writing clean code, saving money in maintenance costs, and future enhancements.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="technology" class="bg-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Technology</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-html5 wow bounceIn" data-wow-delay=".1s"></i>
-                        <h3>Web</h3>
-                        <ul class="text-faded">
-                            <li>
-                                <span>HTML5</span>
-                                <span class="divider"></span>
-                                <span>CSS3</span>
-                            </li>
-                            <li>
-                                <span>UI Design</span>
-                                <span class="divider"></span>
-                                <span>UX</span>
-                            </li>
-                            <li>
-                                <span>Responsive Design</span>
-                            </li>
-                            <li>
-                                <span>JavaScript</span>
-                                <span class="divider"></span>
-                                <span>Angular</span>
-                                <span class="divider"></span>
-                                <span>Knockout</span>
-                                <span class="divider"></span>
-                                <span>jQuery</span>
-                            </li>
-                            <li>
-                                <span>ASP.NET</span>
-                                <span class="divider"></span>
-                                <span>ASP.NET MVC</span>
-                                <span class="divider"></span>
-                                <span>REST API</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-5x fa-mobile wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                        <h3>Mobile</h3>
-                        <ul class="text-faded">
-                            <li>
-                                <span>iOS</span>
-                            </li>
-                            <li>
-                                <span>Android</span>
-                            </li>
-                            <li>
-                                <span>Cordova</span>
-                                <span class="divider"></span>
-                                <span>PhoneGap</span>
-                                <span class="divider"></span>
-                                <span>Ionic</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                        <h3>Enterprise</h3>
-                        <ul class="text-faded">
-                            <li>
-                                <span>Microsoft .NET</span>
-                            </li>
-                            <li>
-                                <span>Microsoft SharePoint</span>
-                            </li>
-                            <li>
-                                <span>Oracle Java</span>
-                            </li>
-                            <li>
-                                <span>SQL Server</span>
-                                <span class="divider"></span>
-                                <span>Oracle</span>
-                                <span class="divider"></span>
-                                <span>MySQL</span>
-                            </li>
-                            <li>
-                                <span>Entity Framework</span>
-                                <span class="divider"></span>
-                                <span>NHibernate</span>
-                                <span class="divider"></span>
-                                <span>Dapper</span>
-                            </li>
-                            <li><span>Content Management Systems (CMS)</span></li>
-                            <li><span>Loan Origination Systems (LOS)</span></li>
-                            <li><span>Salesforce</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" style="padding-bottom:125px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                    <hr class="primary">
-                    <p>Ready to start your next software project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p>
-                        <a href="mailto:msalzer@salzersoftware.com">msalzer@salzersoftware.com</a>
-                    </p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <img class="wow bounceIn" src="img/wisconsin-black.png" alt="Milwaukee Wisconsin Custom Application Development" data-wow-delay=".1s" style="height:60px;width:auto;"/>
-                    <p>
-                        Greater Milwaukee Area
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
-
 </body>
-
 </html>
