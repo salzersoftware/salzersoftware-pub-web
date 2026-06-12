@@ -18,14 +18,14 @@
 
     <!-- SEO Meta Tags -->
     <meta name="theme-color" content="#0a0e27">
-    <meta name="description" content="Melbourne, FL web design, SEO, mobile apps & AI development. Professional websites from $1,495 for Space Coast & Brevard County businesses. Free consultation.">
+    <meta name="description" content="Melbourne, FL web design, SEO, mobile apps & AI development. Professional websites for Space Coast & Brevard County businesses. Free consultation.">
     <meta name="keywords" content="web design Melbourne FL, SEO Brevard County, mobile app development, AI software development, Space Coast web design, website design Florida, Indialantic, custom software, AI consulting, small business website">
     <meta name="author" content="Salzer Software">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Salzer Software — The Space Coast's AI Studio">
-    <meta property="og:description" content="Melbourne, FL web design, SEO, mobile apps & AI development. Professional websites from $1,495 for Space Coast & Brevard County businesses.">
+    <meta property="og:description" content="Melbourne, FL web design, SEO, mobile apps & AI development. Professional websites for Space Coast & Brevard County businesses. Free consultation.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://salzersoftware.com">
     <meta property="og:image" content="https://salzersoftware.com/img/logo/salzer-ai-logo-white-bg-solid-cropped-transparent.png">
@@ -35,7 +35,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Salzer Software — The Space Coast's AI Studio">
-    <meta name="twitter:description" content="Melbourne, FL web design, SEO, mobile apps & AI development. Professional websites from $1,495 for Space Coast businesses.">
+    <meta name="twitter:description" content="Melbourne, FL web design, SEO, mobile apps & AI development. Professional websites for Space Coast & Brevard County businesses. Free consultation.">
     <meta name="twitter:image" content="https://salzersoftware.com/img/logo/salzer-ai-logo-white-bg-solid-cropped-transparent.png">
 
     <!-- Canonical URL -->
@@ -156,6 +156,41 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #ff8c42;
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: -100px;
+            left: 1rem;
+            background: #ffffff;
+            color: #0a0e27;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            z-index: 2000;
+            text-decoration: none;
+            font-weight: 700;
+            transition: top 0.2s ease;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
         }
 
         body {
@@ -372,20 +407,20 @@
         .btn-consultation {
             display: inline-block;
             padding: 1.2rem 2.5rem;
-            background: linear-gradient(135deg, var(--neon-blue), var(--deep-purple));
-            color: white;
+            background: linear-gradient(135deg, #1a4d6d, #6b46c1);
+            color: #ffffff;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(26, 77, 109, 0.4);
             margin-bottom: 2rem;
         }
 
             .btn-consultation:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+                box-shadow: 0 8px 30px rgba(26, 77, 109, 0.6);
             }
 
         .consultation-note {
@@ -723,12 +758,12 @@
         }
 
         .pricing-card.secondary .pricing-cta {
-            background: linear-gradient(135deg, var(--neon-blue), var(--deep-purple));
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+            background: linear-gradient(135deg, #1a4d6d, #6b46c1);
+            box-shadow: 0 4px 20px rgba(26, 77, 109, 0.4);
         }
 
         .pricing-card.secondary .pricing-cta:hover {
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+            box-shadow: 0 8px 30px rgba(26, 77, 109, 0.6);
         }
 
         .pricing-card.secondary .check {
@@ -823,30 +858,6 @@
             line-height: 1;
         }
 
-        .pricing-price-was {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text-dim);
-            text-decoration: line-through;
-            margin-bottom: 0.25rem;
-            opacity: 0.7;
-        }
-
-        .pricing-promo-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(255, 140, 66, 0.2);
-            border: 1px solid rgba(255, 140, 66, 0.5);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--electric-orange);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
         .pricing-price-note {
             color: var(--text-dim);
             font-size: 0.95rem;
@@ -856,19 +867,19 @@
         .pricing-cta {
             display: inline-block;
             padding: 1rem 2.2rem;
-            background: linear-gradient(135deg, var(--electric-orange), #e67a30);
-            color: white;
+            background: linear-gradient(135deg, #1a4d6d, #6b46c1);
+            color: #ffffff;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             font-size: 1.05rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 4px 20px rgba(26, 77, 109, 0.4);
         }
 
             .pricing-cta:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 8px 30px rgba(255, 140, 66, 0.5);
+                box-shadow: 0 8px 30px rgba(26, 77, 109, 0.6);
             }
 
         .pricing-right {
@@ -1396,6 +1407,25 @@
             margin-top: 1rem;
         }
 
+        .pricing-note {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .accessibility-note {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .accessibility-note a {
+            color: var(--neon-blue);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-menu {
@@ -1407,10 +1437,14 @@
                 flex-direction: column;
                 padding: 2rem;
                 transition: right 0.3s ease;
+                visibility: hidden;
+                pointer-events: none;
             }
 
                 .nav-menu.active {
                     right: 0;
+                    visibility: visible;
+                    pointer-events: auto;
                 }
 
             .mobile-menu-toggle {
@@ -1531,18 +1565,19 @@
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="bg-animation"></div>
 
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo-evolution">
-                <img src="img/logo/salzer-ai-logo-dark-bg-cropped-transparent.png" alt="Salzer AI - Web Design, AI & Custom Software, Indialantic Florida" style="height: 45px; width: auto;">
+            <a href="https://salzersoftware.com" class="logo-evolution">
+                <img src="img/logo/salzer-ai-logo-dark-bg-cropped-transparent.png" alt="Salzer Software" style="height: 45px; width: auto;">
             </a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#pricing">Websites</a></li>
@@ -1553,7 +1588,7 @@
         </div>
     </nav>
 
-    <main>
+    <main id="main" tabindex="-1">
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1633,7 +1668,7 @@
                     <h3 class="service-title">Web Design & Development</h3>
                 </div>
                 <p class="service-desc">
-                    Clean, fast, professional websites designed to convert visitors into customers. Hand-coded for performance — no bloated templates, no WordPress maintenance headaches. From single-page sites to full multi-page builds.
+                    Clean, fast, professional websites designed to help turn visitors into leads. Hand-coded for performance — no bloated templates, no WordPress maintenance headaches. From single-page sites to full multi-page builds.
                 </p>
                 <div class="tech-stack">
                     <span class="tech">HTML/CSS</span>
@@ -1650,7 +1685,7 @@
                     <h3 class="service-title">SEO & Local Search</h3>
                 </div>
                 <p class="service-desc">
-                    Get found by the customers already searching for you. On-page SEO, structured data, Google Business Profile optimization, and page speed tuning — built into every project and available as ongoing care.
+                    Help your business show up for customers already searching for you. On-page SEO, structured data, Google Business Profile optimization, and page speed tuning — built into every project and available as ongoing care.
                 </p>
                 <div class="tech-stack">
                     <span class="tech">Schema_Markup</span>
@@ -1718,7 +1753,7 @@
         <div class="pricing-container">
             <div class="pricing-header">
                 <h2>Get Online Fast</h2>
-                <p>A professional website your business deserves — built right, built to rank.</p>
+                <p>A professional website your business deserves — built right, built with SEO foundations.</p>
             </div>
 
             <div class="pricing-cards">
@@ -1727,11 +1762,9 @@
                     <div class="pricing-left">
                         <div class="pricing-label">Starter</div>
                         <div class="pricing-name">Starter Site</div>
-                        <div class="pricing-promo-badge">🔥 Limited-Time Offer</div>
-                        <div class="pricing-price-was">$1,495</div>
                         <div class="pricing-price">$1,249</div>
-                        <div class="pricing-price-note">One-time build · No templates · No WordPress</div>
-                        <a href="mailto:hello@salzersoftware.com?subject=Starter%20Site%20%E2%80%93%20%241%2C495&body=Hi%20Matthew%2C%0A%0AI'm%20interested%20in%20the%20Starter%20Site%20for%20my%20business.%0A%0ABusiness%20Name%3A%0AWebsite%20(if%20any)%3A%0AWhat%20we%20do%3A%0A%0AThanks!" class="pricing-cta">
+                        <div class="pricing-price-note">Base package · One-time build fee · No required monthly plan.</div>
+                        <a href="mailto:hello@salzersoftware.com?subject=Starter%20Site%20Inquiry&body=Hi%20Matthew%2C%0A%0AI'm%20interested%20in%20the%20Starter%20Site%20for%20my%20business.%0A%0ABusiness%20Name%3A%0AWebsite%20(if%20any)%3A%0AWhat%20we%20do%3A%0A%0AThanks!" class="pricing-cta">
                             Get Started →
                         </a>
                     </div>
@@ -1740,18 +1773,18 @@
                         <div class="pricing-feature"><span class="check">✓</span><span>Custom single-page website — clean, fast, professional</span></div>
                         <div class="pricing-feature"><span class="check">✓</span><span>Mobile-friendly design</span></div>
                         <div class="pricing-feature"><span class="check">✓</span><span>Basic copy cleanup & contact CTA</span></div>
-                        <div class="pricing-feature"><span class="check">✓</span><span>Basic local SEO — meta tags, schema, sitemap, Google indexing</span></div>
-                        <div class="pricing-feature"><span class="check">✓</span><span>Analytics setup & Google Search Console submission</span></div>
+                        <div class="pricing-feature"><span class="check">✓</span><span>Basic local SEO — meta tags, schema, sitemap, Google Search Console setup</span></div>
+                        <div class="pricing-feature"><span class="check">✓</span><span>Analytics setup & Search Console submission</span></div>
                         <div class="pricing-feature"><span class="check">✓</span><span>No CMS · No WordPress headaches</span></div>
                     </div>
                 </div>
 
                 <div class="pricing-card secondary">
                     <div class="pricing-left">
-                        <div class="pricing-label">Most Popular</div>
+                        <div class="pricing-label">Good fit for most small businesses</div>
                         <div class="pricing-name">Business Website</div>
                         <div class="pricing-price">from $3,500</div>
-                        <div class="pricing-price-note">One-time build · Multi-page · Built to generate leads</div>
+                        <div class="pricing-price-note">One-time build · Multi-page · No required monthly plan</div>
                         <a href="mailto:hello@salzersoftware.com?subject=Business%20Website%20Inquiry&body=Hi%20Matthew%2C%0A%0AI'm%20interested%20in%20a%20Business%20Website%20for%20my%20business.%0A%0ABusiness%20Name%3A%0AWebsite%20(if%20any)%3A%0AWhat%20we%20do%3A%0ANumber%20of%20pages%20needed%3A%0A%0AThanks!" class="pricing-cta">
                             Get a Quote →
                         </a>
@@ -1773,7 +1806,7 @@
                 <div class="care-plan-left">
                     <span class="care-plan-icon">🛡️</span>
                     <div>
-                        <div class="care-plan-name">Basic Care</div>
+                        <div class="care-plan-name">Optional Care — Basic</div>
                         <div class="care-plan-desc">Hosting, SSL, uptime monitoring & minor updates</div>
                     </div>
                 </div>
@@ -1784,12 +1817,14 @@
                 <div class="care-plan-left">
                     <span class="care-plan-icon">📈</span>
                     <div>
-                        <div class="care-plan-name">Growth Care</div>
+                        <div class="care-plan-name">Optional Care — Growth</div>
                         <div class="care-plan-desc">Basic care + light SEO, analytics review, content tweaks & GBP support</div>
                     </div>
                 </div>
                 <div class="care-plan-price">$249<span>/mo</span></div>
             </div>
+
+            <p class="pricing-note">Final pricing may vary by scope. Third-party costs — including domains, hosting, paid tools, stock assets, and app-store fees — are excluded unless included in a care plan or stated in a written quote.</p>
 
             <div class="pricing-custom-note" style="margin-top: 1.5rem;">
                 <div>
@@ -1845,7 +1880,7 @@
                         <span class="highlight-tag">80+ Organizations</span>
                         <span class="highlight-tag">Automated Alerts</span>
                     </div>
-                    <a href="https://ccappro.com" target="_blank" class="case-study-link">
+                    <a href="https://ccappro.com" target="_blank" rel="noopener noreferrer" class="case-study-link">
                         View the Platform <span>→</span>
                     </a>
                 </div>
@@ -1860,7 +1895,7 @@
                 <div class="case-study-content">
                     <h3>AI-Powered Cross-Selling for Enterprise Sales</h3>
                     <p>
-                        We built a custom AI lead intelligence engine integrated with Snowflake that surfaces high-value cross-sell opportunities for enterprise sales teams. The system uses a proprietary multi-factor scoring algorithm — analyzing industry penetration, product affinity, engagement patterns, portfolio diversity, and recency signals — to rank and prioritize leads. Runs on an automated schedule, delivering fresh insights directly to sales without manual intervention.
+                        We built a custom AI lead intelligence engine integrated with Snowflake that surfaces high-value cross-sell opportunities for enterprise sales teams. The system combines multiple business signals into a custom scoring model to rank and prioritize leads. Runs on an automated schedule, delivering fresh insights directly to sales without manual intervention.
                     </p>
                     <div class="case-study-highlights">
                         <span class="highlight-tag">Snowflake</span>
@@ -1888,7 +1923,7 @@
                         <span class="highlight-tag">Structured Data</span>
                         <span class="highlight-tag">Mobile-First</span>
                     </div>
-                    <a href="https://directdisposalsolutions.com" target="_blank" class="case-study-link">
+                    <a href="https://directdisposalsolutions.com" target="_blank" rel="noopener noreferrer" class="case-study-link">
                         View the Site <span>→</span>
                     </a>
                 </div>
@@ -1902,8 +1937,8 @@
     <!-- Footer / Contact -->
     <footer class="contact" id="contact">
         <div class="contact-content">
-            <h2>Ready to Build the Future?</h2>
-            <p>Whether you need a website, mobile app, custom software, or AI integration — let's talk. Based in Melbourne, FL and serving clients nationwide.</p>
+            <h2>Let's Build Something</h2>
+            <p>Website, AI, mobile apps, and custom software for businesses that need practical help getting things built. Based in Melbourne, FL and serving clients nationwide.</p>
 
             <div class="contact-links">
                 <a href="mailto:hello@salzersoftware.com?subject=Project%20Quote%20Request&body=Hi%20Matthew%2C%0A%0AI%27d%20like%20to%20discuss%20a%20potential%20project.%0A%0ACompany%3A%0AProject%20Overview%3A%0ATimeline%3A" class="btn-consultation" style="margin-bottom: 0; font-size: 1rem; padding: 1rem 2rem;">
@@ -1920,8 +1955,13 @@
 
             <p class="local-note">The Space Coast's AI Studio · Face-to-face meetings for Melbourne & Brevard businesses · Remote clients welcome nationwide</p>
 
+            <p class="accessibility-note">
+                Accessibility: I aim to make this site usable for all visitors. If you have trouble accessing anything,
+                please email <a href="mailto:hello@salzersoftware.com">hello@salzersoftware.com</a>.
+            </p>
+
             <div class="footer-tagline">
-                <p>© <span id="copyright-year"></span> Salzer Software LLC | Building Tomorrow's Intelligence Today</p>
+                <p>&copy; <span id="copyright-year"></span> Salzer Software LLC &nbsp;&middot;&nbsp; <a href="/privacy.html" style="color: var(--text-dim); text-decoration: none;">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
@@ -1937,27 +1977,47 @@
     <script>
         document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navMenu = document.getElementById('navMenu');
 
+        function setMobileMenuState(isOpen) {
+            navMenu.classList.toggle('active', isOpen);
+            mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+            mobileMenuToggle.setAttribute(
+                'aria-label',
+                isOpen ? 'Close navigation menu' : 'Open navigation menu'
+            );
+        }
+
         mobileMenuToggle.addEventListener('click', () => {
-            const expanded = navMenu.classList.toggle('active');
-            mobileMenuToggle.setAttribute('aria-expanded', expanded);
+            setMobileMenuState(!navMenu.classList.contains('active'));
         });
 
         document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            });
+            link.addEventListener('click', () => setMobileMenuState(false));
+        });
+
+        document.querySelector('.skip-link').addEventListener('click', function (e) {
+            e.preventDefault();
+            const main = document.getElementById('main');
+            if (main) {
+                main.focus();
+                main.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+            }
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
@@ -1968,25 +2028,24 @@
         });
 
         const hexagons = document.querySelectorAll('.hexagon:not(.active)');
-        setInterval(() => {
-            const randomHex = hexagons[Math.floor(Math.random() * hexagons.length)];
-            randomHex.classList.add('active');
-            setTimeout(() => { randomHex.classList.remove('active'); }, 1000);
-        }, 2000);
+        if (!prefersReducedMotion && hexagons.length > 0) {
+            setInterval(() => {
+                const randomHex = hexagons[Math.floor(Math.random() * hexagons.length)];
+                randomHex.classList.add('active');
+                setTimeout(() => { randomHex.classList.remove('active'); }, 1000);
+            }, 2000);
+        }
 
-        // Close mobile menu on outside tap
         document.addEventListener('click', (e) => {
             if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                setMobileMenuState(false);
             }
         });
 
-        // Close mobile menu on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                setMobileMenuState(false);
+                mobileMenuToggle.focus();
             }
         });
     </script>
